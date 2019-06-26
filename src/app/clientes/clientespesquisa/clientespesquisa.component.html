@@ -26,18 +26,20 @@
             <ng-template pTemplate="header">
               <tr>
                 <th class="col-id-header">Id</th>
-                <th>Descrição</th>
+                <th>Nome</th>
+                <th class="col-cred">Saldo Crediário</th>
                 <th class="col-acoes"></th>
               </tr>
             </ng-template>
 
-            <ng-template pTemplate="body" let-cat>
+            <ng-template pTemplate="body" let-cli>
               <tr>
-                <td class="col-id">{{cat.id}}</td>
-                <td class="col-acoes">{{cat.nome}}</td>
+                <td class="col-id">{{cli.id}}</td>
+                <td class="col-acoes">{{cli.nome}}</td>
+                <td class="col-cred">{{cli.saldo_devedor}}</td>
                 <td>
-                    <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" showDelay="1000" class="ui-button-info" [routerLink]="['/clientes',cat.id]"></button>
-                    <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" showDelay="1000" class="ui-button-danger" type="button" (click)="confirmarExclusao(cat)"></button>
+                    <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" showDelay="1000" class="ui-button-info" [routerLink]="['/clientes',cli.id]"></button>
+                    <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" showDelay="1000" class="ui-button-danger" type="button" (click)="confirmarExclusao(cli)"></button>
                 </td>
               </tr>
             </ng-template>

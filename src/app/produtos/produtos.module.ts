@@ -9,12 +9,13 @@ import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { FormsModule } from '@angular/forms';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ProdutospesquisaComponent } from './produtospesquisa/produtospesquisa.component';
 import { ProdutosCadastroComponent } from './produtos-cadastro/produtos-cadastro.component';
 import { RouterModule } from '@angular/router';
 import {PickListModule} from 'primeng/picklist';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 @NgModule({
-  declarations: [ProdutosCadastroComponent],
+  declarations: [ProdutospesquisaComponent, ProdutosCadastroComponent],
   imports: [
     CommonModule,
     InputTextModule,
@@ -29,7 +30,8 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     CurrencyMaskModule
   ],
   exports:[
-     ProdutosCadastroComponent
+     ProdutosCadastroComponent,
+     ProdutospesquisaComponent
   ],
   providers:[
     ProdutosService,

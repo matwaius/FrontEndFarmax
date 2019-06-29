@@ -18,13 +18,16 @@
                 <div *ngIf="nome.hasError('minlength')">O nome deve ter no mínimo 3 caractares</div>
             </div>
 
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+              <label>Saldo</label>
+              <input pInputText type="text" name="saldo_devedor" [(ngModel)]="cliente.saldo_devedor">
+            </div>
+
             <div class="ui-g-12">
                 <button pButton type="submit" label="Salvar" [disabled]="f.invalid" class=" boxButton"></button>
                 <button pButton type="button" label="Novo" class="ui-button-info" class=" boxButton" routerLink="/clientes/novo"></button>
                 <a routerLink="/clientes">Voltar para a pesquisa</a>
             </div>
-
-
         </div>
     </form>
 </div>

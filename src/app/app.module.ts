@@ -1,5 +1,3 @@
-import { CidadesModule } from './cidades/cidades.module';
-import { CidadesCadastroComponent } from './cidades/cidades-cadastro/cidades-cadastro.component';
 import { ButtonModule } from 'primeng/button';
 import { ClientesCadastroComponent } from './clientes/clientes-cadastro/clientes-cadastro.component';
 import { ClientespesquisaComponent } from './clientes/clientespesquisa/clientespesquisa.component';
@@ -16,16 +14,17 @@ import { EstadosCadastroComponent } from './estados/estados-cadastro/estados-cad
 import { EstadosModule } from './estados/estados.module';
 import { SidebarModule } from 'primeng/sidebar';
 import { ProdutosCadastroComponent } from './produtos/produtos-cadastro/produtos-cadastro.component';
+import { ProdutospesquisaComponent } from './produtos/produtospesquisa/produtospesquisa.component';
 import { ProdutosModule } from './produtos/produtos.module';
 
 const rotas: Routes = [
   {path: '',redirectTo:'clientes', pathMatch:'full'},
-  {path: 'cidades', component: CidadesCadastroComponent},
   {path: 'clientes', component: ClientespesquisaComponent},
   {path: 'clientes/novo', component: ClientesCadastroComponent},
   {path: 'clientes/:id', component: ClientesCadastroComponent},
-  {path: 'produtos', component: ProdutosCadastroComponent},
-  {path: 'produtos/:id', component: EstadosCadastroComponent}
+  {path: 'produtos', component: ProdutospesquisaComponent},
+  {path: 'produtos/novo', component: ProdutosCadastroComponent},
+  {path: 'produtos/:id', component: ProdutosCadastroComponent}
 ];
 
 @NgModule({
@@ -36,7 +35,6 @@ const rotas: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     ClientesModule,
-    CidadesModule,
     EstadosModule,
     ProdutosModule,
     HttpClientModule,

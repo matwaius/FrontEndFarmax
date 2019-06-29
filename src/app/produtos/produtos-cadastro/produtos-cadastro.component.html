@@ -5,20 +5,29 @@
   <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
     <div class="ui-g">
       <div class="ui-g-12">
-        <h1>Novo Produto</h1>
+        <h1>{{editando?'Edicao de ':'Novo '}} Produto </h1>
       </div>
       <div class="ui-g-12 ui-md-9 ui-fluid">
         <label>Nome</label>
-        <input pInputText type="text" name="nome" [(ngModel)]="produto.nome" #nome="ngModel" required minlength="3">
-        <div *ngIf="nome.hasError('required') && nome.touched">Informe um nome</div>
-        <div *ngIf="nome.hasError('minlength')">O nome deve ter no mínimo 3 caractares</div>
+        <input pInputText type="text" name="nome"
+          [(ngModel)]="produto.nome"
+          #nome="ngModel" required minlength="3">
+
+          <div *ngIf="nome.hasError('required') && nome.touched">Informe um nome</div>
+          <div *ngIf="nome.hasError('minlength')">O nome deve ter no mínimo 3 caractares</div>
       </div>
       <div class="ui-g-12 ui-md-9 ui-fluid">
-        <label>Preço</label>
-        <input pInputText type="text" name="preco" [(ngModel)]="produto.preco" currencyMask [(ngModel)]="value" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" required>
-        <div *ngIf="nome.hasError('required') && nome.touched">Informe um preço</div>
+        <label>Valor</label>
+        <input pInputText type="text" name="valor" [(ngModel)]="produto.valor" currencyMask [(ngModel)]="value" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" required>
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe um valor</div>
       </div>
       <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Qtd Estoque</label>
+        <input pInputText type="text" name="estoque" [(ngModel)]="produto.estoque" currencyMask [(ngModel)]="value" [options]="{ prefix: '' }" required>
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe uma Qtd de Estoque</div>
+      </div>
+
+      <!-- <div class="ui-g-12 ui-md-9 ui-fluid">
         <p-pickList [source]="categorias" [target]="produto.categorias"
         sourceHeader="Categorias" targetHeader="Selecionadas"
         [responsive]="true"  [dragdrop]="true"
@@ -29,11 +38,13 @@
               </div>
           </ng-template>
       </p-pickList>
-      </div>
+      </div>-->
 
       <div class="ui-g-12">
         <button pButton type="submit" label="Salvar" [disabled]="f.invalid" class=" boxButton"></button>
-      </div>
+        <button pButton type="button" label="Novo" class="ui-button-info" class=" boxButton" routerLink="/produtos/novo"></button>
+        <a routerLink="/produtos">Voltar para a pesquisa</a>
+    </div>
 
     </div>
   </form>

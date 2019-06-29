@@ -11,8 +11,29 @@ export class ProdutosService {
   urlFiltro;
   constructor(private http: HttpClient) { }
 
+  pesquisar(filtro: any): Promise<any> {
+    if(filtro.nome){
+      this.urlFiltro = 'http://localhost:8081/produtos/filtro?nome='+filtro.nome;
+    }else{
+      this.urlFiltro = 'http://localhost:8081/produtos';
+    }
+
+    return this.http.get<any>(this.urlFiltro).toPromise();
+  }
+
+  excluir(id:number):Promise<void>{
+    return this.http.delete(this.produtosURL+"/"+id)
+    .toPromise()
+    .then(() => null);
+}
+
   adicionar(produto: Produto): Promise<any>{
     return this.http.post(this.produtosURL, produto)
+    .toPromise();
+  }
+
+  alterar(produto: Produto): Promise<any>{
+    return this.http.put(this.produtosURL+'/'+produto.id, produto)
     .toPromise();
   }
 

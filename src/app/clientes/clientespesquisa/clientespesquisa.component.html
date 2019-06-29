@@ -2,7 +2,7 @@
 <p-confirmDialog header="Confirmação" icon="pi pi-question-circle" acceptLabel="Sim" rejectLabel="Não"></p-confirmDialog>
 
 <div class="container">
-<form autocomplete="off" (ngSubmit)="editar()">
+<form autocomplete="off" (ngSubmit)="pesquisar()">
   <div class="ui-g">
 
       <div class="ui-g-12">
@@ -12,7 +12,7 @@
       </div>
 
       <div class="ui-g-12 ui-fluid">
-          <label>Descrição</label>
+          <label>Nome</label>
           <input pInputText type="text" name="descricao" [(ngModel)]="nomeBusca">
       </div>
 
@@ -27,7 +27,7 @@
               <tr>
                 <th class="col-id-header">Id</th>
                 <th>Nome</th>
-                <th class="col-cred">Saldo Crediário</th>
+                <th class="col-cred" width="100px" >Saldo Crediário</th>
                 <th class="col-acoes"></th>
               </tr>
             </ng-template>
@@ -36,7 +36,7 @@
               <tr>
                 <td class="col-id">{{cli.id}}</td>
                 <td class="col-acoes">{{cli.nome}}</td>
-                <td class="col-cred">{{cli.saldo_devedor}}</td>
+                <td class="col-cred" style="text-align: end;">R$  {{cli.saldo_devedor}}</td>
                 <td>
                     <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" showDelay="1000" class="ui-button-info" [routerLink]="['/clientes',cli.id]"></button>
                     <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" showDelay="1000" class="ui-button-danger" type="button" (click)="confirmarExclusao(cli)"></button>

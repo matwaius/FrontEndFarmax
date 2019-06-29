@@ -1,10 +1,11 @@
-export class Categoria{
+export class Cliente{
   id: number;
   nome: string;
+  saldo_devedor: number;
 }
 export class Produto{
     id: number;
     nome: string;
-    preco: number;
-    categorias: Categoria[] = [];
+    estoque: number;
+    valor: number;
 }

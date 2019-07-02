@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { EstadosService } from './estados.service';
+import { VendasService } from './vendas.service';
 import { CommonModule } from '@angular/common';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
@@ -9,13 +9,13 @@ import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { EstadospesquisaComponent } from './estadospesquisa/estadospesquisa.component';
-import { EstadosCadastroComponent } from './estados-cadastro/estados-cadastro.component';
+import { VendaspesquisaComponent } from './vendaspesquisa/vendaspesquisa.component';
+import { VendasCadastroComponent } from './vendas-cadastro/vendas-cadastro.component';
 import { RouterModule } from '@angular/router';
 import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
-  declarations: [EstadospesquisaComponent, EstadosCadastroComponent],
+  declarations: [VendaspesquisaComponent, VendasCadastroComponent],
   imports: [
     CommonModule,
     InputTextModule,
@@ -29,12 +29,12 @@ import {DropdownModule} from 'primeng/dropdown';
     RouterModule
   ],
   exports:[
-     EstadospesquisaComponent,
-     EstadosCadastroComponent
+     VendaspesquisaComponent,
+     VendasCadastroComponent
   ],
   providers:[
-    EstadosService,
+    VendasService,
     MessageService
   ]
 })
-export class EstadosModule { }
+export class VendasModule { }

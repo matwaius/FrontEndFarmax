@@ -21,6 +21,19 @@ export class ProdutosCadastroComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    const codigoProduto = this.rota.snapshot.params['id'];
+    console.log(codigoProduto);
+    if(codigoProduto){
+      this.carregarProduto(codigoProduto);
+    }
+  }
+
+  carregarProduto(id:number){
+    this.service.buscarPorCodigo(id)
+      .then((data) => {
+        this.produto = data;
+      }
+    );
   }
 
   salvar(form: FormControl) {
@@ -29,5 +42,17 @@ export class ProdutosCadastroComponent implements OnInit {
       this.messageService.add({severity:'success', summary:'Cadastro', detail:'Produto '+this.produto.nome+' cadastrado'});
       form.reset();
     });
+  }
+
+  alterar(form: FormControl) {
+    this.service.alterar(this.produto)
+    .then( ()=>{
+      this.messageService.add({severity:'success', summary:'Edição', detail:'produto '+this.produto.nome+' alterado'});
+      form.reset();
+    });
+  }
+
+  get editando(){
+    return Boolean(this.produto.id);
   }
 }

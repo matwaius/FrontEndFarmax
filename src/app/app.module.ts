@@ -9,9 +9,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmationService } from 'primeng/api';
 import { Routes,RouterModule} from '@angular/router';
-import { EstadospesquisaComponent } from './estados/estadospesquisa/estadospesquisa.component';
-import { EstadosCadastroComponent } from './estados/estados-cadastro/estados-cadastro.component';
-import { EstadosModule } from './estados/estados.module';
+import { VendaspesquisaComponent } from './vendas/vendaspesquisa/vendaspesquisa.component';
+import { VendasCadastroComponent } from './vendas/vendas-cadastro/vendas-cadastro.component';
+import { VendasModule } from './vendas/vendas.module';
 import { SidebarModule } from 'primeng/sidebar';
 import { ProdutosCadastroComponent } from './produtos/produtos-cadastro/produtos-cadastro.component';
 import { ProdutospesquisaComponent } from './produtos/produtospesquisa/produtospesquisa.component';
@@ -24,7 +24,10 @@ const rotas: Routes = [
   {path: 'clientes/:id', component: ClientesCadastroComponent},
   {path: 'produtos', component: ProdutospesquisaComponent},
   {path: 'produtos/novo', component: ProdutosCadastroComponent},
-  {path: 'produtos/:id', component: ProdutosCadastroComponent}
+  {path: 'produtos/:id', component: ProdutosCadastroComponent},
+  {path: 'vendas', component: VendaspesquisaComponent},
+  {path: 'vendas/novo', component: VendasCadastroComponent},
+  {path: 'vendas/:id', component: VendasCadastroComponent}
 ];
 
 @NgModule({
@@ -35,7 +38,7 @@ const rotas: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     ClientesModule,
-    EstadosModule,
+    VendasModule,
     ProdutosModule,
     HttpClientModule,
     RouterModule.forRoot(rotas),

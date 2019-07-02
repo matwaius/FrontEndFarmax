@@ -1,0 +1,60 @@
+<p-toast></p-toast>
+<p-confirmDialog header="Confirmação" icon="pi pi-question-circle" acceptLabel="Sim" rejectLabel="Não"></p-confirmDialog>
+
+<div class="container">
+<form autocomplete="off" (ngSubmit)="pesquisar()">
+  <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>
+          Vendas
+        </h1>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+          <label>Cliente</label>
+          <input pInputText type="text" name="fk_id_cliente" [(ngModel)]="nomeBusca">
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Pesquisar"></button>
+      </div>
+
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <p-table [value]="vendas" [paginator]="true" [rows]="3" [responsive]="true">
+            <ng-template pTemplate="header">
+              <tr>
+                <th class="col-id-header">Id</th>
+                <th>Cliente</th>
+                <th class="col-prod" width="100px" >Produto</th>
+                <th class="col-qtd" width="100px" >Qtd</th>
+                <th class="col-valor" width="100px" >Valor</th>
+                <th class="col-acoes"></th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-ven>
+              <tr>
+                <td class="col-id">{{ven.id}}</td>
+                <td class="col-acoes">{{ven.fk_id_cliente}}</td>
+                <td class="col-prod">{{ven.fk_id_produto}}</td>
+                <td class="col-qtd" style="text-align: end;">  {{ven.qtd_produto}}</td>
+                <td class="col-valor" style="text-align: end;">R$  {{ven.valor}}</td>
+                <td>
+                    <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" showDelay="1000" class="ui-button-danger" type="button" (click)="confirmarExclusao(ven)"></button>
+                </td>
+              </tr>
+            </ng-template>
+
+          </p-table>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <a pButton label="Nova Venda" routerLink="/vendas/novo"></a>
+      </div>
+
+  </div>
+</form>
+</div>

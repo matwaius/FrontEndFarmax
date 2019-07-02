@@ -1,0 +1,40 @@
+<p-toast></p-toast>
+
+<div class="container">
+    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+        <div class="ui-g">
+
+            <div class="ui-g-12">
+              <h1>{{editando?'Edicao de ':'Novo '}} Vendas </h1>
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+              <label>Cliente</label>
+              <input pInputText type="text" name="fk_id_cliente" [(ngModel)]="venda.fk_id_cliente">
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+              <label>Produto</label>
+              <input pInputText type="text" name="fk_id_produto" [(ngModel)]="venda.fk_id_produto">
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+              <label>Quantidade</label>
+              <input pInputText type="text" name="qtd_produto" [(ngModel)]="venda.qtd_produto">
+            </div>
+
+            <div class="ui-g-12 ui-md-9 ui-fluid">
+              <label>Valor</label>
+              <input pInputText type="text" name="valor" [(ngModel)]="venda.valor">
+            </div>
+
+            <div class="ui-g-12">
+                <button pButton type="submit" label="Salvar" [disabled]="f.invalid" class=" boxButton"></button>
+                <button pButton type="button" label="Novo" class="ui-button-info" class=" boxButton" routerLink="/vendas/novo"></button>
+                <a routerLink="/vendas">Voltar para a pesquisa</a>
+            </div>
+
+
+        </div>
+    </form>
+</div>
